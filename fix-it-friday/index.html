@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Generator Curriculum, HTML Code &amp; Presets</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  body { font-family:'Segoe UI', system-ui, -apple-system, sans-serif; background:linear-gradient(160deg,#eaf6ff 0%,#f3fbff 55%,#e2f1fd 100%); color:#103B63; min-height:100vh; padding:18px 14px 30px; }
+  .wrap { max-width:760px; margin:0 auto; }
+  h1 { font-size:clamp(22px,5.4vw,30px); font-weight:900; text-align:center; line-height:1.2; background:linear-gradient(90deg,#103B63,#168FEA); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .bar { height:10px; background:#d8edfd; border-radius:99px; margin:16px 0 6px; overflow:hidden; }
+  .bar i { display:block; height:100%; background:linear-gradient(90deg,#7cc4ff,#168FEA); border-radius:99px; transition:width .25s; }
+  .count { text-align:center; font-size:13px; font-weight:700; color:#2c587f; margin-bottom:12px; }
+  .card { background:#fff; border:2px solid #cfe8fb; border-radius:20px; padding:20px 18px; box-shadow:0 10px 26px rgba(22,143,234,.13); min-height:300px; }
+  .card pre { white-space:pre-wrap; word-wrap:break-word; font-family:inherit; font-size:16px; line-height:1.55; }
+  .nav { display:flex; gap:10px; margin-top:14px; }
+  .nav button { flex:1; border:none; cursor:pointer; font-weight:800; font-size:16px; padding:14px; border-radius:999px; }
+  .back { background:#fff; color:#103B63; border:2px solid #a9d4f7 !important; }
+  .next { background:linear-gradient(90deg,#168FEA,#103B63); color:#fff; box-shadow:0 6px 16px rgba(22,143,234,.35); }
+  .copy { width:100%; margin-top:10px; border:2px solid #a9d4f7; background:#eaf6ff; color:#103B63; cursor:pointer; font-weight:800; font-size:15px; padding:12px; border-radius:999px; }
+  button:disabled { opacity:.35; cursor:default; box-shadow:none; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Generator Curriculum, HTML Code &amp; Presets</h1>
+  <div class="bar"><i id="bar"></i></div>
+  <p class="count" id="count"></p>
+  <div class="card"><pre id="screen"></pre></div>
+  <button class="copy" id="copybtn">Copy This Screen</button>
+  <div class="nav">
+    <button class="back" id="backbtn">← Back</button>
+    <button class="next" id="nextbtn">Next →</button>
+  </div>
+</div>
+<script>
+  var SCREENS = ["Student Curriculum\nFix-It Friday: Generator Rescue\n\nToday's project\nYou will upgrade and personalize the Mini Chibi Character Prompt Generator provided in today's Skool\nlesson. You are not building from scratch.\n\nYour finish line\nA working generator with your name, colors, improved choices, stronger\nprompt output, and a tested Surprise Me feature.\n\nWhat you need\n- The starter index.html file from the Skool lesson\n- A laptop or desktop computer\n- ChatGPT open in your browser\n- Your generator name and two or three colors\n- A folder for your original and updated files\n\nStep 1 - Protect the original\n- Download index.html from the lesson.\n- Copy and paste the file so you have two copies.\n- Rename one copy ORIGINAL-DO-NOT-EDIT.html.\n- Rename the other copy My-Chibi-Generator.html.\n- Only upload and change the working copy.", "Step 2 - Test the starter\n- Double-click the working copy to open it in Chrome or Edge.\n- Select at least one choice in each category.\n- Generate, copy, clear, and try every button that appears.\n- Write down one thing that needs improvement.\n\nStep 3 - Upload to ChatGPT\n- Start a new ChatGPT conversation.\n- Use the attachment button to upload My-Chibi-Generator.html.\n- Paste the master build prompt on the next pages.\n- Wait for ChatGPT to summarize the current generator before approving edits.\n\nGLAM HUSTLE HUB\nHUB || STUDENT\nFIX-IT FRIDAY\nCURRICULUM", "PAGE\nPAGE 9\n\nStudent Build Steps\nStage\n\nWhat you change\n\nTest before continuing\n\n1. Make it mine\n\nChange the generator name, short description, and no more\nthan three colors.\n\nThe page opens and every original\nbutton remains.\n\n2. Better choices\n\nAdd three useful choices to three current categories. Add one\nAdd Your Own field if it is missing.\n\nEvery new choice can be selected\nand appears in the output.\n\n3. Better prompt\n\nStrengthen the final prompt so every selection is clear and\nthe image rules are complete.\n\nGenerate one prompt and check\nevery selection.\n\n4. Add the fun\n\nAdd or repair Surprise Me so it makes one valid choice in\neach category.\n\nClick it three times. The generator\nmust remain usable.\n\n5. Final test\n\nTest Select, Add Your Own, Generate, Copy, Clear, Surprise\nMe, and narrow-screen layout.\n\nNo button is broken and the final\nfile is saved.\n\nImportant repair rule\nIf something that worked before stops working, stop adding features.\nTell ChatGPT exactly which button broke and ask it to repair only that\nregression.", "Your customization choices\nGenerator name\n\n____________________________________________\n\nShort description\n\n____________________________________________\n\nMain color\n\n____________________________________________\n\nSecond color\n\n____________________________________________\n\nOptional accent\n\n____________________________________________\n\nThree categories to expand\n\n____________________________________________\n\nUse rights reminder\nUse or share the starter and your updated generator only according to the permissions Glam gives in the Skool lesson. Do\nnot assume resale rights.\n\nGLAM HUSTLE HUB\nHUB || STUDENT\nFIX-IT FRIDAY\nCURRICULUM", "PAGE\nPAGE10", "Today's Copy-and-Paste Build Prompt\nPaste this after uploading your working index.html file to ChatGPT.\nI am participating in Glam's Fix-It Friday Generator Rescue class.\nI uploaded my working copy of a Mini Chibi Character Prompt Generator. It is a single self-contained index.html\nfile containing its HTML, CSS, and JavaScript.\nHelp me improve this existing generator without rebuilding it from scratch.\nPROTECT WHAT ALREADY WORKS\n- Do not remove, rename, replace, or change unrelated sections.\n- Do not delete any working buttons, choices, instructions, links, output areas, or features.\n- Keep it as one self-contained index.html file.\n- Do not add external libraries or require extra files unless they already exist in the uploaded file.\n- Keep the generator mobile-friendly and beginner-friendly.\n- Do not use placeholder code.\n- After every update, return the complete updated index.html file, not a partial code snippet.\nWORK WITH ME IN FIVE STAGES\nStage 1: Inspect and protect\nFirst, inspect the uploaded file. Tell me:\n1. What the generator currently does.\n2. Which buttons and features already work.\n3. Any obvious problem that could stop today's upgrades.\nDo not change the code yet. Wait for me to type CONTINUE.\nStage 2: Make it mine\nAsk me for:\n- My new generator name\n- One short description\n- My main color\n- My second color\n- One optional accent color\nChange only the name, description, and color styling. Preserve every working feature. Return the complete updated\nfile and tell me exactly what to test. Then wait.\nStage 3: Build better choices\nShow me the existing categories. Ask me to choose three categories to expand. Help me add three useful choices to\neach selected category. If Add Your Own is missing, add one simple custom-entry option without breaking existing\nselections. Make sure every new choice appears in the generated prompt. Return the complete updated file and give\nme a short test. Then wait.\nStage 4: Strengthen the generated prompt\nImprove the prompt-building logic so the output clearly includes every selected choice. The finished prompt should\ndescribe one polished adult chibi character with a clear visual style, facial expression shown through the eyes,\nbrows, mouth, face, pose, and body language, and one character on one separate canvas. It must not request a\ncollage, grid, contact sheet, lineup, or multi-character canvas unless I specifically choose one. Preserve the rest\nof the generator. Return the complete updated file and give me a short test. Then wait.\nStage 5: Add the fun and test\nAdd or repair one Surprise Me button. It should choose one valid option from each relevant category and update the\ngenerated prompt. Do not remove the Generate, Copy, Clear, Add Your Own, or other working features.\nThen help me test:\n- Every selection category\n- Add Your Own\n- Generate Prompt\n- Copy Prompt\n- Clear or Reset\n- Surprise Me\n- Mobile or narrow-screen layout\nDo not give me every stage at once. Give me the next stage, let me complete and test it, then continue.", "GLAM HUSTLE HUB\nHUB || STUDENT\nFIX-IT FRIDAY\nCURRICULUM\n\nPAGE\nPAGE11\n\nStudent Final Test and Assignment\nFinal test checklist\n- [ ] The file opens in Chrome or Edge.\n- [ ] The new generator name and description are correct.\n- [ ] The colors are readable and consistent.\n- [ ] Every original feature still appears.\n- [ ] Every new option can be selected.\n- [ ] Add Your Own reaches the final prompt.\n- [ ] Generate Prompt includes every selection.\n- [ ] Copy Prompt copies the complete output.\n- [ ] Clear or Reset works.\n- [ ] Surprise Me produces a valid combination.\n- [ ] The generator remains readable in a narrow browser window.\n- [ ] The finished index.html file is saved in the correct folder.\n\nThree-prompt challenge\n- Create one chibi prompt by choosing every option yourself.\n- Create one chibi prompt using Add Your Own.\n- Create one chibi prompt using Surprise Me.", "Assignment\nSave your finished generator, test three different prompts, and post one\nscreenshot of your personalized generator in the Skool lesson comments.\nInclude one sentence explaining the upgrade you are most proud of.\n\nBefore you share or sell\n- Remove test information and unfinished placeholder text.\n- Check spelling and button labels.\n- Confirm the permissions included with the starter file.\n- Do not sell or distribute the starter unless Glam has clearly granted those rights.\n\nYou are done when\nYour personalized generator opens, every major button works, the final\nprompt includes your selections, and the updated file is safely saved.\n\nGLAM HUSTLE HUB\nHUB || STUDENT\nFIX-IT FRIDAY\nCURRICULUM", "PAGE\nPAGE12"];
+  var i = 0;
+  var scr = document.getElementById("screen"), cnt = document.getElementById("count"),
+      bar = document.getElementById("bar"), back = document.getElementById("backbtn"),
+      next = document.getElementById("nextbtn"), copyb = document.getElementById("copybtn");
+  function render(){
+    scr.textContent = SCREENS[i];
+    cnt.textContent = "Screen " + (i+1) + " of " + SCREENS.length;
+    bar.style.width = ((i+1)/SCREENS.length*100) + "%";
+    back.disabled = i === 0;
+    next.textContent = i === SCREENS.length-1 ? "✓ Done" : "Next →";
+    copyb.textContent = "Copy This Screen";
+    window.scrollTo(0,0);
+  }
+  back.onclick = function(){ if(i>0){ i--; render(); } };
+  next.onclick = function(){ if(i<SCREENS.length-1){ i++; render(); } };
+  copyb.onclick = function(){
+    function done(){ copyb.textContent = "Copied ✓"; }
+    if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(SCREENS[i]).then(done, function(){ fb(); }); }
+    else fb();
+    function fb(){ var ta=document.createElement("textarea"); ta.value=SCREENS[i]; document.body.appendChild(ta); ta.select(); try{ document.execCommand("copy"); done(); }catch(e){} document.body.removeChild(ta); }
+  };
+  render();
+</script>
+</body>
+</html>

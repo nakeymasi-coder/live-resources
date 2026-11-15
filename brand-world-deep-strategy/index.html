@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brand World Generator — Deep Strategy Guide</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  body { font-family:'Segoe UI', system-ui, -apple-system, sans-serif; background:linear-gradient(160deg,#eaf6ff 0%,#f3fbff 55%,#e2f1fd 100%); color:#103B63; min-height:100vh; padding:18px 14px 30px; }
+  .wrap { max-width:760px; margin:0 auto; }
+  h1 { font-size:clamp(22px,5.4vw,30px); font-weight:900; text-align:center; line-height:1.2; background:linear-gradient(90deg,#103B63,#168FEA); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .bar { height:10px; background:#d8edfd; border-radius:99px; margin:16px 0 6px; overflow:hidden; }
+  .bar i { display:block; height:100%; background:linear-gradient(90deg,#7cc4ff,#168FEA); border-radius:99px; transition:width .25s; }
+  .count { text-align:center; font-size:13px; font-weight:700; color:#2c587f; margin-bottom:12px; }
+  .card { background:#fff; border:2px solid #cfe8fb; border-radius:20px; padding:20px 18px; box-shadow:0 10px 26px rgba(22,143,234,.13); min-height:300px; }
+  .card pre { white-space:pre-wrap; word-wrap:break-word; font-family:inherit; font-size:16px; line-height:1.55; }
+  .nav { display:flex; gap:10px; margin-top:14px; }
+  .nav button { flex:1; border:none; cursor:pointer; font-weight:800; font-size:16px; padding:14px; border-radius:999px; }
+  .back { background:#fff; color:#103B63; border:2px solid #a9d4f7 !important; }
+  .next { background:linear-gradient(90deg,#168FEA,#103B63); color:#fff; box-shadow:0 6px 16px rgba(22,143,234,.35); }
+  .copy { width:100%; margin-top:10px; border:2px solid #a9d4f7; background:#eaf6ff; color:#103B63; cursor:pointer; font-weight:800; font-size:15px; padding:12px; border-radius:999px; }
+  button:disabled { opacity:.35; cursor:default; box-shadow:none; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Brand World Generator — Deep Strategy Guide</h1>
+  <div class="bar"><i id="bar"></i></div>
+  <p class="count" id="count"></p>
+  <div class="card"><pre id="screen"></pre></div>
+  <button class="copy" id="copybtn">Copy This Screen</button>
+  <div class="nav">
+    <button class="back" id="backbtn">← Back</button>
+    <button class="next" id="nextbtn">Next →</button>
+  </div>
+</div>
+<script>
+  var SCREENS = ["GLAM HUSTLE HUB\n\nBrand World Strategy Guide\nThe Deeper Thinking Behind the Tool\n\nTOOLBOX TUESDAY \u2022 BRAND WORLD GENERATOR\n\n1. Start With a Real Customer, Not a Cute Idea\nA strong generator is easier to market when it solves a repeated problem for a specific type of\nperson. \u201cEveryone\u201d is not a useful customer definition.\n1. Name the exact person.\n2. Name the result they want.\n3. Name what slows them down.\n4. Name what they are doing manually now.\n5. Name what your tool makes faster, easier, or clearer.\nStrategy test: If you cannot finish \u201cThis tool helps [person] do [result] without\n[frustration],\u201d the idea is not clear enough yet.\n\n2. Build a Brand World, Not a Folder of Random Images\nA Brand World is a repeatable visual system. Every scene should feel like it belongs to the same\nbusiness even when the location or activity changes.", "The 6 Consistency Anchors\n\uf0b7\n\nColor palette \u2014 repeat the same core colors\n\n\uf0b7\n\nMaterials \u2014 repeat wood, marble, glass, linen, metal, etc.\n\n\uf0b7\n\nArchitecture \u2014 keep the building language consistent\n\n\uf0b7\n\nDecor \u2014 repeat furniture style, signage style, plants, fixtures\n\n\uf0b7\n\nLighting \u2014 maintain a recognizable lighting mood\n\n\uf0b7\n\nBrand personality \u2014 every scene should feel like the same brand voice\n\n3. Scene Planning Framework\nUse categories so you do not create 15 versions of the same room.\nCategory", "Examples\n\nExterior\n\nEntrance, storefront, parking, signage\n\nInterior\n\nReception, showroom, kitchen, studio\n\nWork\n\nPackaging, production, admin, prep\n\nCustomer\n\nShopping, consultation, pickup, event\n\nProduct\n\nClose-up, display, flat lay, hero image\n\nLifestyle\n\nOwner working, customer using product\n\nSeasonal\n\nHoliday, spring, fall, launch season\n\nMarketing\n\nWebsite hero, Pinterest, ad, email banner\n\n4. Prompt Quality Framework\nSUBJECT + STYLE + COLORS + ENVIRONMENT + DETAILS + MOOD + CAMERA + PURPOSE\nThe \u201cpurpose\u201d matters because the image you need for a website hero is not necessarily the\nimage you need for a Pinterest pin or product mockup.\n\n5. Generator Strategy: What Belongs in V1?\nV1 should solve the core problem cleanly. Do not build every feature you can imagine on day\none.", "Build Now\n\uf0b7\n\nBrand profile\n\n\uf0b7\n\nCore scene inputs\n\n\uf0b7\n\nMain prompt output\n\n\uf0b7\n\nCopy button\n\n\uf0b7\n\nSave scene\n\n\uf0b7\n\nBasic consistency instructions\n\nSave for V2\n\uf0b7\n\nUser accounts\n\n\uf0b7\n\nMultiple saved brands\n\n\uf0b7\n\nImage generation inside the app\n\n\uf0b7\n\nExport to PDF\n\n\uf0b7", "Prompt history\n\n\uf0b7\n\nTeam sharing\n\n\uf0b7\n\nMarketplace/templates\n\n\uf0b7\n\nAdvanced analytics\n\n6. Test the Tool Like a Customer\n6. Use a niche you know well.\n7. Generate 3 different scenes.\n8. Check whether they sound like the same brand.\n9. Look for missing inputs or repeated outputs.\n10. Remove anything that makes the form feel tedious.\n11. Test whether the output is actually copy-and-paste ready.\n\n7. The Positioning Statement\nUse this before you sell or share the tool:\nThe Brand World Generator helps [specific customer] create [specific visual result]\nwithout [specific frustration].\nMy positioning statement:\n____________________________________________________________\n____________________________________________________________\n____________________________________________________________", "8. Paid Community Challenge\n\uf0b7\n\nCreate a 15-scene Brand World\n\n\uf0b7\n\nGenerate at least 3 scenes\n\n\uf0b7\n\nUse the consistency prompt across all 3\n\n\uf0b7\n\nCompare what changed and what stayed consistent\n\n\uf0b7\n\nWrite your positioning statement\n\n\uf0b7\n\nIdentify one V2 feature you will NOT build yet"];
+  var i = 0;
+  var scr = document.getElementById("screen"), cnt = document.getElementById("count"),
+      bar = document.getElementById("bar"), back = document.getElementById("backbtn"),
+      next = document.getElementById("nextbtn"), copyb = document.getElementById("copybtn");
+  function render(){
+    scr.textContent = SCREENS[i];
+    cnt.textContent = "Screen " + (i+1) + " of " + SCREENS.length;
+    bar.style.width = ((i+1)/SCREENS.length*100) + "%";
+    back.disabled = i === 0;
+    next.textContent = i === SCREENS.length-1 ? "✓ Done" : "Next →";
+    copyb.textContent = "Copy This Screen";
+    window.scrollTo(0,0);
+  }
+  back.onclick = function(){ if(i>0){ i--; render(); } };
+  next.onclick = function(){ if(i<SCREENS.length-1){ i++; render(); } };
+  copyb.onclick = function(){
+    function done(){ copyb.textContent = "Copied ✓"; }
+    if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(SCREENS[i]).then(done, function(){ fb(); }); }
+    else fb();
+    function fb(){ var ta=document.createElement("textarea"); ta.value=SCREENS[i]; document.body.appendChild(ta); ta.select(); try{ document.execCommand("copy"); done(); }catch(e){} document.body.removeChild(ta); }
+  };
+  render();
+</script>
+</body>
+</html>

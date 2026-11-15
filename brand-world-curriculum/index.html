@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brand World Generator — Student Curriculum</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  body { font-family:'Segoe UI', system-ui, -apple-system, sans-serif; background:linear-gradient(160deg,#eaf6ff 0%,#f3fbff 55%,#e2f1fd 100%); color:#103B63; min-height:100vh; padding:18px 14px 30px; }
+  .wrap { max-width:760px; margin:0 auto; }
+  h1 { font-size:clamp(22px,5.4vw,30px); font-weight:900; text-align:center; line-height:1.2; background:linear-gradient(90deg,#103B63,#168FEA); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .bar { height:10px; background:#d8edfd; border-radius:99px; margin:16px 0 6px; overflow:hidden; }
+  .bar i { display:block; height:100%; background:linear-gradient(90deg,#7cc4ff,#168FEA); border-radius:99px; transition:width .25s; }
+  .count { text-align:center; font-size:13px; font-weight:700; color:#2c587f; margin-bottom:12px; }
+  .card { background:#fff; border:2px solid #cfe8fb; border-radius:20px; padding:20px 18px; box-shadow:0 10px 26px rgba(22,143,234,.13); min-height:300px; }
+  .card pre { white-space:pre-wrap; word-wrap:break-word; font-family:inherit; font-size:16px; line-height:1.55; }
+  .nav { display:flex; gap:10px; margin-top:14px; }
+  .nav button { flex:1; border:none; cursor:pointer; font-weight:800; font-size:16px; padding:14px; border-radius:999px; }
+  .back { background:#fff; color:#103B63; border:2px solid #a9d4f7 !important; }
+  .next { background:linear-gradient(90deg,#168FEA,#103B63); color:#fff; box-shadow:0 6px 16px rgba(22,143,234,.35); }
+  .copy { width:100%; margin-top:10px; border:2px solid #a9d4f7; background:#eaf6ff; color:#103B63; cursor:pointer; font-weight:800; font-size:15px; padding:12px; border-radius:999px; }
+  button:disabled { opacity:.35; cursor:default; box-shadow:none; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Brand World Generator — Student Curriculum</h1>
+  <div class="bar"><i id="bar"></i></div>
+  <p class="count" id="count"></p>
+  <div class="card"><pre id="screen"></pre></div>
+  <button class="copy" id="copybtn">Copy This Screen</button>
+  <div class="nav">
+    <button class="back" id="backbtn">← Back</button>
+    <button class="next" id="nextbtn">Next →</button>
+  </div>
+</div>
+<script>
+  var SCREENS = ["GLAM HUSTLE HUB\n\nBrand World Generator Student\nCurriculum\nPaid Skool Community Workbook\n\nTOOLBOX TUESDAY \u2022 BRAND WORLD GENERATOR\n\nWhat You Will Leave With\n\uf0b7\n\nOne clear customer and problem to solve\n\n\uf0b7\n\nA complete 10-15 scene visual Brand World\n\n\uf0b7\n\nAt least one polished AI image prompt and generated image\n\n\uf0b7\n\nA planned Brand World Generator with defined inputs and outputs\n\n\uf0b7\n\nA clear path from one idea to multiple sellable products\nTHE TWO FORMULAS: PERSON \u2192 PROBLEM \u2192 PRODUCT \u2192 PRESENTATION | IDEA \u2192\nWORLD \u2192 TOOL \u2192 MONEY\n\nPart 1 \u2014 Start With the Person\nDo not start with \u201cWhat can AI make?\u201d Start with \u201cWho can I help?\u201d\nMy customer is:\n____________________________________________________________\n____________________________________________________________\nTheir type of business:\n____________________________________________________________\nTheir stage of business:\n____________________________________________________________\n\nPart 2 \u2014 Identify the Problem\nThink about what they repeatedly struggle to create, explain, organize, or visualize.\nTheir biggest frustration:\n____________________________________________________________\n____________________________________________________________\nWhat they are doing now instead:\n____________________________________________________________\n____________________________________________________________\nWhat would save them time:\n____________________________________________________________\n____________________________________________________________\n\nComplete this sentence: My customer needs __________ because __________.", "Part 3 \u2014 Define the Product\nWhat could make the problem easier? Today\u2019s example is a Brand World Generator that helps\nusers create detailed, consistent visual prompts.\nMy tool/product idea:\n____________________________________________________________\n____________________________________________________________\n\nPart 4 \u2014 Decide the Presentation\nWhere will the final images or outputs be used?\n\uf0b7", "Website\n\n\uf0b7\n\nPinterest\n\n\uf0b7\n\nInstagram/Facebook\n\n\uf0b7\n\nAds\n\n\uf0b7\n\nProduct mockups\n\n\uf0b7\n\nEmail marketing\n\n\uf0b7\n\nBranding\n\n\uf0b7\n\nCourse or digital-product materials\n\nMy top 3 uses:\n____________________________________________________________\n____________________________________________________________\n\nPart 5 \u2014 Build the World\nThink in worlds, not one image. List 10-15 spaces, scenes, moments, or close-up details that\nnaturally belong to the business.\n1.\n____________________________________________________________\n2.\n____________________________________________________________\n\n3.\n____________________________________________________________\n4.\n____________________________________________________________\n5.\n____________________________________________________________\n6.\n____________________________________________________________\n7.\n____________________________________________________________\n8.\n____________________________________________________________\n9.\n____________________________________________________________\n10.\n____________________________________________________________\n11.\n____________________________________________________________\n12.\n____________________________________________________________\n13.\n____________________________________________________________\n14.\n____________________________________________________________\n15.\n____________________________________________________________", "Part 6 \u2014 Build a Better Prompt\nSUBJECT + STYLE + COLORS + ENVIRONMENT + DETAILS + MOOD + CAMERA VIEW +\n\nPURPOSE\nSubject:\n____________________________________________________________\nStyle:\n____________________________________________________________\nColors:\n____________________________________________________________\nEnvironment:\n____________________________________________________________\nImportant Details:\n____________________________________________________________\nMood:\n____________________________________________________________\nCamera View:\n____________________________________________________________\nPurpose:\n____________________________________________________________\n\nMy Complete Image Prompt\n____________________________________________________________\n____________________________________________________________\n____________________________________________________________\n____________________________________________________________\n____________________________________________________________\n____________________________________________________________\n\nPart 7 \u2014 Design the Generator\nPlan what the app asks the user and what it gives back.\nBusiness Type:\n____________________________________________________________\n\nTarget Customer:\n____________________________________________________________\nProducts or Services:\n____________________________________________________________\nBrand Style:\n____________________________________________________________\nBrand Colors:\n____________________________________________________________\nMaterials / Textures:\n____________________________________________________________\nScene or Area:\n____________________________________________________________\nImportant Scene Details:\n____________________________________________________________\nSeason:\n____________________________________________________________\nTime of Day:\n____________________________________________________________\nPeople:\n____________________________________________________________\nActivity:\n____________________________________________________________\nMood:\n____________________________________________________________\nLighting:\n____________________________________________________________\nCamera View:\n____________________________________________________________\nImage Purpose:\n____________________________________________________________", "Part 8 \u2014 Define the Outputs\n\uf0b7\n\nMain detailed image prompt\n\n\uf0b7\n\nNegative prompt\n\n\uf0b7\n\nAlternate prompt\n\n\uf0b7\n\nCamera recommendation\n\n\uf0b7\n\nRelated scene ideas\n\n\uf0b7\n\nBrand consistency instructions\n\n\uf0b7\n\nMarketing use suggestions\n\nAnything else my generator should output:\n____________________________________________________________\n____________________________________________________________\n\nPart 9 \u2014 Live Build Checklist\n\uf0b7\n\nI know who the tool is for\n\n\uf0b7\n\nI know the problem it solves\n\n\uf0b7\n\nI created 10+ scenes\n\n\uf0b7\n\nI generated at least one image\n\n\uf0b7\n\nI defined all generator inputs\n\n\uf0b7\n\nI defined the outputs\n\n\uf0b7\n\nI tested one result\n\n\uf0b7\n\nI know what I would improve next", "Part 10 \u2014 Homework\n\uf0b7\n\nChoose one business niche\n\n\uf0b7\n\nIdentify one customer and one problem\n\n\uf0b7\n\nCreate 10 scenes\n\n\uf0b7\n\nGenerate at least 3 images\n\n\uf0b7\n\nOutline the generator\n\n\uf0b7\n\nTest the generator\n\n\uf0b7\n\nOpen the Monetization Playbook and build your product ladder\nTOOLBOX TUESDAY RULE: Find a problem. Teach the solution. Build the tool. Create\nwith it. Show how to monetize it."];
+  var i = 0;
+  var scr = document.getElementById("screen"), cnt = document.getElementById("count"),
+      bar = document.getElementById("bar"), back = document.getElementById("backbtn"),
+      next = document.getElementById("nextbtn"), copyb = document.getElementById("copybtn");
+  function render(){
+    scr.textContent = SCREENS[i];
+    cnt.textContent = "Screen " + (i+1) + " of " + SCREENS.length;
+    bar.style.width = ((i+1)/SCREENS.length*100) + "%";
+    back.disabled = i === 0;
+    next.textContent = i === SCREENS.length-1 ? "✓ Done" : "Next →";
+    copyb.textContent = "Copy This Screen";
+    window.scrollTo(0,0);
+  }
+  back.onclick = function(){ if(i>0){ i--; render(); } };
+  next.onclick = function(){ if(i<SCREENS.length-1){ i++; render(); } };
+  copyb.onclick = function(){
+    function done(){ copyb.textContent = "Copied ✓"; }
+    if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(SCREENS[i]).then(done, function(){ fb(); }); }
+    else fb();
+    function fb(){ var ta=document.createElement("textarea"); ta.value=SCREENS[i]; document.body.appendChild(ta); ta.select(); try{ document.execCommand("copy"); done(); }catch(e){} document.body.removeChild(ta); }
+  };
+  render();
+</script>
+</body>
+</html>

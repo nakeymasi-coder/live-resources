@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Freebie Friday Product — Curriculum</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  body { font-family:'Segoe UI', system-ui, -apple-system, sans-serif; background:linear-gradient(160deg,#eaf6ff 0%,#f3fbff 55%,#e2f1fd 100%); color:#103B63; min-height:100vh; padding:18px 14px 30px; }
+  .wrap { max-width:760px; margin:0 auto; }
+  h1 { font-size:clamp(22px,5.4vw,30px); font-weight:900; text-align:center; line-height:1.2; background:linear-gradient(90deg,#103B63,#168FEA); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .bar { height:10px; background:#d8edfd; border-radius:99px; margin:16px 0 6px; overflow:hidden; }
+  .bar i { display:block; height:100%; background:linear-gradient(90deg,#7cc4ff,#168FEA); border-radius:99px; transition:width .25s; }
+  .count { text-align:center; font-size:13px; font-weight:700; color:#2c587f; margin-bottom:12px; }
+  .card { background:#fff; border:2px solid #cfe8fb; border-radius:20px; padding:20px 18px; box-shadow:0 10px 26px rgba(22,143,234,.13); min-height:300px; }
+  .card pre { white-space:pre-wrap; word-wrap:break-word; font-family:inherit; font-size:16px; line-height:1.55; }
+  .nav { display:flex; gap:10px; margin-top:14px; }
+  .nav button { flex:1; border:none; cursor:pointer; font-weight:800; font-size:16px; padding:14px; border-radius:999px; }
+  .back { background:#fff; color:#103B63; border:2px solid #a9d4f7 !important; }
+  .next { background:linear-gradient(90deg,#168FEA,#103B63); color:#fff; box-shadow:0 6px 16px rgba(22,143,234,.35); }
+  .copy { width:100%; margin-top:10px; border:2px solid #a9d4f7; background:#eaf6ff; color:#103B63; cursor:pointer; font-weight:800; font-size:15px; padding:12px; border-radius:999px; }
+  button:disabled { opacity:.35; cursor:default; box-shadow:none; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Freebie Friday Product — Curriculum</h1>
+  <div class="bar"><i id="bar"></i></div>
+  <p class="count" id="count"></p>
+  <div class="card"><pre id="screen"></pre></div>
+  <button class="copy" id="copybtn">Copy This Screen</button>
+  <div class="nav">
+    <button class="back" id="backbtn">← Back</button>
+    <button class="next" id="nextbtn">Next →</button>
+  </div>
+</div>
+<script>
+  var SCREENS = ["Freebie Friday - Student Curriculum\nYou already know your person. Today you turn that problem into a freebie + upgrade path.\n\nYour Goal\nFinish ONE useful freebie and map how it can grow into something paid.\n\nStep 1 - Write What You Already Know\nMy person: ______________________________________________\nTheir problem: ___________________________________________", "Step 2 - Use This Prompt\nI already identified the person I want to help and the problem they have using my ChatGPT Business Learning Hub.\nI am creating a Freebie Friday lead magnet for this person.\nUsing the audience and problem I give you, help me build a simple product ladder starting with a FREE lead\nmagnet.\nDo this in order:\n1. Give me 5 strong freebie ideas that solve one quick, specific problem.\n2. Recommend the BEST freebie to build first and explain why.\n3. Show me the simplest version I can create TODAY.\n4. Give me a clear promise for the freebie.\n5. Show me what sections, features, or pieces it needs - only what is necessary.\n6. Then show me how this freebie can grow into a paid offer.\n7. Build me a simple upgrade path such as:\nFREE quick-win resource/graphic/template/checklist\n-> interactive generator or mini app\n-> stronger paid tool/app\n-> bundle, membership, workshop, service, or full ecosystem.\n8. Tell me what should stay FREE and what should be saved for the PAID version.\n9. Give me a simple name for each level of the product ladder.\n10. End with the exact next action I should take to start building the freebie.\nKeep it beginner-friendly, practical, and focused on finishing. Do not give me a giant complicated product.", "Step 3 - Choose ONE Freebie\n\u2022 Choose the idea with the clearest quick win.\n\u2022 Choose something you can finish today.\n\u2022 Do not choose the biggest idea. Choose the best FIRST step.\nMy freebie: ______________________________________________\nMy promise: ______________________________________________\n\nStep 4 - Pick the Simplest Format\n\u2022 Graphic / quick-reference\n\u2022 Checklist\n\u2022 Template\n\u2022 Prompt pack\n\u2022 Mini guide\n\u2022 Tracker / planner\n\u2022 Generator\n\n\u2022 Mini app / interactive tool\nMy format: _______________________________________________\n\nStep 5 - Build Only the Must-Haves\n\u25a0 Must-have: _____________________________________________\n\u25a0 Must-have: _____________________________________________\n\u25a0 Must-have: _____________________________________________\n\u25a0 Must-have: _____________________________________________\n\nStep 6 - Create Your Upgrade Path\nFREE -> INTERACTIVE -> PAID COMPLETE -> ECOSYSTEM\nFREE: ____________________________________________________\nINTERACTIVE / GENERATOR: _________________________________\nPAID COMPLETE TOOL: ______________________________________\nECOSYSTEM / NEXT OFFER: __________________________________\n\nStep 7 - Decide Free vs Paid\nKeep FREE: _______________________________________________\nSave for PAID: ___________________________________________", "Step 8 - Make It Customer Ready\n\u25a0 Name it\n\u25a0 Brand it\n\u25a0 Add your website/shop\n\u25a0 Add a next-step CTA\n\u25a0 Remove test data\n\u25a0 Test the link\n\u25a0 Create thumbnail/cover\n\u25a0 Write one promo post"];
+  var i = 0;
+  var scr = document.getElementById("screen"), cnt = document.getElementById("count"),
+      bar = document.getElementById("bar"), back = document.getElementById("backbtn"),
+      next = document.getElementById("nextbtn"), copyb = document.getElementById("copybtn");
+  function render(){
+    scr.textContent = SCREENS[i];
+    cnt.textContent = "Screen " + (i+1) + " of " + SCREENS.length;
+    bar.style.width = ((i+1)/SCREENS.length*100) + "%";
+    back.disabled = i === 0;
+    next.textContent = i === SCREENS.length-1 ? "✓ Done" : "Next →";
+    copyb.textContent = "Copy This Screen";
+    window.scrollTo(0,0);
+  }
+  back.onclick = function(){ if(i>0){ i--; render(); } };
+  next.onclick = function(){ if(i<SCREENS.length-1){ i++; render(); } };
+  copyb.onclick = function(){
+    function done(){ copyb.textContent = "Copied ✓"; }
+    if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(SCREENS[i]).then(done, function(){ fb(); }); }
+    else fb();
+    function fb(){ var ta=document.createElement("textarea"); ta.value=SCREENS[i]; document.body.appendChild(ta); ta.select(); try{ document.execCommand("copy"); done(); }catch(e){} document.body.removeChild(ta); }
+  };
+  render();
+</script>
+</body>
+</html>

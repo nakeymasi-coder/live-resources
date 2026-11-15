@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brand World Generator — Monetization Playbook</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  body { font-family:'Segoe UI', system-ui, -apple-system, sans-serif; background:linear-gradient(160deg,#eaf6ff 0%,#f3fbff 55%,#e2f1fd 100%); color:#103B63; min-height:100vh; padding:18px 14px 30px; }
+  .wrap { max-width:760px; margin:0 auto; }
+  h1 { font-size:clamp(22px,5.4vw,30px); font-weight:900; text-align:center; line-height:1.2; background:linear-gradient(90deg,#103B63,#168FEA); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .bar { height:10px; background:#d8edfd; border-radius:99px; margin:16px 0 6px; overflow:hidden; }
+  .bar i { display:block; height:100%; background:linear-gradient(90deg,#7cc4ff,#168FEA); border-radius:99px; transition:width .25s; }
+  .count { text-align:center; font-size:13px; font-weight:700; color:#2c587f; margin-bottom:12px; }
+  .card { background:#fff; border:2px solid #cfe8fb; border-radius:20px; padding:20px 18px; box-shadow:0 10px 26px rgba(22,143,234,.13); min-height:300px; }
+  .card pre { white-space:pre-wrap; word-wrap:break-word; font-family:inherit; font-size:16px; line-height:1.55; }
+  .nav { display:flex; gap:10px; margin-top:14px; }
+  .nav button { flex:1; border:none; cursor:pointer; font-weight:800; font-size:16px; padding:14px; border-radius:999px; }
+  .back { background:#fff; color:#103B63; border:2px solid #a9d4f7 !important; }
+  .next { background:linear-gradient(90deg,#168FEA,#103B63); color:#fff; box-shadow:0 6px 16px rgba(22,143,234,.35); }
+  .copy { width:100%; margin-top:10px; border:2px solid #a9d4f7; background:#eaf6ff; color:#103B63; cursor:pointer; font-weight:800; font-size:15px; padding:12px; border-radius:999px; }
+  button:disabled { opacity:.35; cursor:default; box-shadow:none; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Brand World Generator — Monetization Playbook</h1>
+  <div class="bar"><i id="bar"></i></div>
+  <p class="count" id="count"></p>
+  <div class="card"><pre id="screen"></pre></div>
+  <button class="copy" id="copybtn">Copy This Screen</button>
+  <div class="nav">
+    <button class="back" id="backbtn">← Back</button>
+    <button class="next" id="nextbtn">Next →</button>
+  </div>
+</div>
+<script>
+  var SCREENS = ["GLAM HUSTLE HUB\n\nBrand World Monetization\nPlaybook\nTurn One Tool Into a Product Ecosystem\n\nTOOLBOX TUESDAY \u2022 BRAND WORLD GENERATOR\n\nThe Rule: One Good Idea Can Become Multiple Offers\nDo not abandon a useful idea after making one product. Package the same core solution at\ndifferent levels of depth, price, and convenience.\nONE IDEA \u2192 FREE VALUE \u2192 LOW-TICKET \u2192 NICHE PRODUCT \u2192 MAIN PRODUCT \u2192\nPREMIUM \u2192 BUNDLE\n\n1. Free Lead Magnet\nPurpose: attract the exact person who would eventually want the generator.\n\uf0b7", "10 Brand World Prompts\n\n\uf0b7\n\nBrand World Scene Checklist\n\n\uf0b7\n\n5 Business Scene Ideas by Niche\n\n\uf0b7\n\nMini Prompt Formula Cheat Sheet\n\nMy freebie:\n____________________________________________________________\n____________________________________________________________\n\n2. $2 Tuesday / Entry Offer\n\uf0b7\n\n25 Business Scene Prompts\n\n\uf0b7\n\nMini Brand Scene Prompt Pack\n\n\uf0b7\n\nOne niche-specific prompt pack\n\n\uf0b7\n\nBrand World starter worksheet\n\nMy $2 offer:\n____________________________________________________________\n____________________________________________________________\n\n3. Small Paid Product ($7-$17)\n\uf0b7\n\n50-100 scene prompt pack\n\n\uf0b7", "Farm/Salon/Boutique/Bakery Brand World Pack\n\n\uf0b7\n\nPrompt + scene planning workbook\n\n\uf0b7\n\nSeasonal Brand World Pack\n\nMy small product:\n\n____________________________________________________________\n____________________________________________________________\n\n4. Main Product\n\uf0b7\n\nFull Brand World Generator\n\n\uf0b7\n\nGenerator + prompt library\n\n\uf0b7\n\nGenerator + training mini-course\n\nMy main product:\n____________________________________________________________\n____________________________________________________________", "5. Premium Offer\n\uf0b7\n\nGenerator + complete niche template library\n\n\uf0b7\n\nDone-with-you Brand World setup\n\n\uf0b7\n\nBrand World audit + custom prompt system\n\n\uf0b7\n\nCommercial-use creator kit\n\nMy premium offer:\n____________________________________________________________\n____________________________________________________________\n\n6. Bundle\nBundle related pieces that help the same customer get the result faster.\nExample: Brand World Generator + 100 Scene Prompts + Image Guide + 5 Niche Packs +\nConsistency Prompt Kit\nMy bundle:\n____________________________________________________________\n____________________________________________________________\n____________________________________________________________\n\n7. Niche Expansion\nDo not change the whole product. Change the examples, scenes, vocabulary, and presets for a\nspecific customer.\n\uf0b7", "Salon Brand World\n\n\uf0b7\n\nBakery Brand World\n\n\uf0b7\n\nFarm/Homestead Brand World\n\n\uf0b7\n\nBoutique Brand World\n\n\uf0b7\n\nDaycare Brand World\n\n\uf0b7\n\nCandle Studio Brand World\n\n\uf0b7\n\nEvent Planner Brand World\n\nThree niches I could create:\n____________________________________________________________\n____________________________________________________________\n____________________________________________________________\n\n8. Product Ladder Worksheet\nLevel", "Purpose\n\nFREE\n\nLead magnet\n\n$2\n\nEntry offer\n\n$7-$17\n\nSmall product\n\nMAIN\n\nCore generator/product\n\nPREMIUM\n\nHigher-value solution\n\nBUNDLE\n\nEverything together\n\nMy Offer\n\n9. Pricing Is About Depth, Not Just File Count\nThe higher-priced version should usually save more time, include more customization, reduce\nmore decisions, or get the customer closer to a finished result.\n\n10. Selling Message\nUse this structure:\nYou do not need more random AI images. You need a repeatable way to create visuals\nthat actually look like YOUR business. [Product] helps you ______ so you can ______\nwithout ______.\nMy selling message:\n____________________________________________________________\n____________________________________________________________\n____________________________________________________________\n____________________________________________________________", "11. Monetization Challenge\n\uf0b7\n\nCreate one freebie\n\n\uf0b7\n\nCreate one $2 offer\n\n\uf0b7\n\nCreate one $7-$17 offer\n\n\uf0b7\n\nChoose your main product\n\n\uf0b7\n\nChoose one premium version\n\n\uf0b7\n\nChoose one bundle\n\n\uf0b7\n\nName 3 niche editions\n\n\uf0b7\n\nWrite one selling message"];
+  var i = 0;
+  var scr = document.getElementById("screen"), cnt = document.getElementById("count"),
+      bar = document.getElementById("bar"), back = document.getElementById("backbtn"),
+      next = document.getElementById("nextbtn"), copyb = document.getElementById("copybtn");
+  function render(){
+    scr.textContent = SCREENS[i];
+    cnt.textContent = "Screen " + (i+1) + " of " + SCREENS.length;
+    bar.style.width = ((i+1)/SCREENS.length*100) + "%";
+    back.disabled = i === 0;
+    next.textContent = i === SCREENS.length-1 ? "✓ Done" : "Next →";
+    copyb.textContent = "Copy This Screen";
+    window.scrollTo(0,0);
+  }
+  back.onclick = function(){ if(i>0){ i--; render(); } };
+  next.onclick = function(){ if(i<SCREENS.length-1){ i++; render(); } };
+  copyb.onclick = function(){
+    function done(){ copyb.textContent = "Copied ✓"; }
+    if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(SCREENS[i]).then(done, function(){ fb(); }); }
+    else fb();
+    function fb(){ var ta=document.createElement("textarea"); ta.value=SCREENS[i]; document.body.appendChild(ta); ta.select(); try{ document.execCommand("copy"); done(); }catch(e){} document.body.removeChild(ta); }
+  };
+  render();
+</script>
+</body>
+</html>

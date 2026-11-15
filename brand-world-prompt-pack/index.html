@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brand World Generator — Prompt Pack</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  body { font-family:'Segoe UI', system-ui, -apple-system, sans-serif; background:linear-gradient(160deg,#eaf6ff 0%,#f3fbff 55%,#e2f1fd 100%); color:#103B63; min-height:100vh; padding:18px 14px 30px; }
+  .wrap { max-width:760px; margin:0 auto; }
+  h1 { font-size:clamp(22px,5.4vw,30px); font-weight:900; text-align:center; line-height:1.2; background:linear-gradient(90deg,#103B63,#168FEA); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .bar { height:10px; background:#d8edfd; border-radius:99px; margin:16px 0 6px; overflow:hidden; }
+  .bar i { display:block; height:100%; background:linear-gradient(90deg,#7cc4ff,#168FEA); border-radius:99px; transition:width .25s; }
+  .count { text-align:center; font-size:13px; font-weight:700; color:#2c587f; margin-bottom:12px; }
+  .card { background:#fff; border:2px solid #cfe8fb; border-radius:20px; padding:20px 18px; box-shadow:0 10px 26px rgba(22,143,234,.13); min-height:300px; }
+  .card pre { white-space:pre-wrap; word-wrap:break-word; font-family:inherit; font-size:16px; line-height:1.55; }
+  .nav { display:flex; gap:10px; margin-top:14px; }
+  .nav button { flex:1; border:none; cursor:pointer; font-weight:800; font-size:16px; padding:14px; border-radius:999px; }
+  .back { background:#fff; color:#103B63; border:2px solid #a9d4f7 !important; }
+  .next { background:linear-gradient(90deg,#168FEA,#103B63); color:#fff; box-shadow:0 6px 16px rgba(22,143,234,.35); }
+  .copy { width:100%; margin-top:10px; border:2px solid #a9d4f7; background:#eaf6ff; color:#103B63; cursor:pointer; font-weight:800; font-size:15px; padding:12px; border-radius:999px; }
+  button:disabled { opacity:.35; cursor:default; box-shadow:none; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Brand World Generator — Prompt Pack</h1>
+  <div class="bar"><i id="bar"></i></div>
+  <p class="count" id="count"></p>
+  <div class="card"><pre id="screen"></pre></div>
+  <button class="copy" id="copybtn">Copy This Screen</button>
+  <div class="nav">
+    <button class="back" id="backbtn">← Back</button>
+    <button class="next" id="nextbtn">Next →</button>
+  </div>
+</div>
+<script>
+  var SCREENS = ["GLAM HUSTLE HUB\n\nBrand World Generator Prompt\nPack\nCopy-and-Paste Prompts for Skool Members\n\nTOOLBOX TUESDAY \u2022 BRAND WORLD GENERATOR\n\nPrompt 1 \u2014 Find the Opportunity\nI want to create a useful AI-powered tool or digital product for this audience:\nAudience: [WHO YOU WANT TO HELP]\nBusiness or niche: [NICHE]\nAct as a customer-research strategist. Identify: (1) what this person is trying to accomplish, (2)\ntheir biggest frustrations around branding, visuals, marketing, or content creation, (3) repetitive\nmanual tasks, (4) things they struggle to describe or create with AI, (5) what would save them time,\nand (6) what would make them say \u201cI need this.\u201d\nThen recommend 5 useful tools, generators, or digital products I could create. Do not suggest\ngeneric AI tools. Every idea must solve a specific problem.", "Prompt 2 \u2014 Build My Complete Brand World\nI am building a visual Brand World for:\nBusiness type: [BUSINESS]\nTarget customer: [CUSTOMER]\nBrand personality: [PERSONALITY]\nVisual style: [STYLE]\nBrand colors: [COLORS]\nProducts/services: [PRODUCTS OR SERVICES]\nAct as a creative director and brand-world strategist. Create at least 15 cohesive scenes including\nexterior, interior, customer-facing, work areas, product scenes, behind-the-scenes, lifestyle,\nseasonal, marketing, and close-up/detail scenes.\nFor each scene provide: scene title, purpose, environment, important objects/details, who appears,\nrecommended camera view, and best marketing use. All scenes must feel like one consistent\nbrand world. Avoid repetitive or generic ideas.", "Prompt 3 \u2014 Create My Brand World Image\nYou are an expert AI visual prompt writer and commercial brand photographer. Create a highly\ndetailed image-generation prompt using:\nBusiness: [BUSINESS]\nScene: [SCENE]\nBrand style: [STYLE]\nBrand colors: [COLORS]\nEnvironment: [LOCATION]\nImportant details: [DETAILS]\nMood: [MOOD]\nSeason: [SEASON]\nTime of day: [TIME]\nPeople: [PEOPLE]\nCamera view: [CAMERA]\nImage purpose: [PURPOSE]\nDescribe subject, environment, composition, decor/objects, materials/textures, lighting, color\npalette, atmosphere, camera perspective, and commercial photography style. Keep the brand\nvisually consistent.\nReturn: 1) MAIN IMAGE PROMPT, 2) NEGATIVE PROMPT, 3) ALTERNATE VERSION, 4) SUGGESTED\nCAMERA ANGLE.", "Prompt 4 \u2014 Keep Multiple Scenes Consistent\nUse this brand identity as the permanent visual direction for every image:\nBusiness: [BUSINESS]\nBrand style: [STYLE]\nColors: [COLORS]\nMaterials/textures: [MATERIALS]\nOverall mood: [MOOD]\nTarget customer: [CUSTOMER]\nI will give you scenes one at a time. For every scene: keep architecture, visual identity, color\npalette, styling, materials, and mood consistent; change only what naturally needs to change;\nmake each image feel like the same real business; write a detailed AI image prompt; and suggest\none related scene to create next.\n\nMy first scene is: [SCENE]", "Prompt 5 \u2014 Build the Full Brand World Generator\nI want to build an advanced beginner-friendly web app called BRAND WORLD GENERATOR. Its\npurpose is to help business owners and digital creators create a complete, visually consistent\nbusiness world and generate professional AI image prompts for multiple scenes.\nInputs: Business Type, Target Customer, Products/Services, Brand Style, Brand Colors,\nMaterials/Textures, Scene/Area, Important Scene Details, Season, Time of Day, People, Activity,\nMood, Lighting, Camera View, Image Purpose.\nOutputs: Main Image Prompt, Negative Prompt, Alternate Version, Camera Recommendation, 3\nRelated Brand World Scenes, Brand Consistency Guide, and 3 Marketing Uses.\nInclude a beautiful dashboard, clear section headings, dropdowns, text fields, Generate button,\nCopy buttons, Regenerate, Clear Form, Save Scene, and a Saved Brand World section. Add a Brand\nProfile that stores business name, type, target audience, style, colors, materials, and mood so users\ndo not re-enter branding every time.\nBefore building, give me: app structure, page layout, all form fields, dropdown options, output\nstructure, user flow, version-one features, and features to save for version two. Then build the\napplication.", "Prompt 6 \u2014 Turn the Generator Into Products\nI created this tool: [DESCRIBE TOOL]\nCustomer: [CUSTOMER]\nProblem it solves: [PROBLEM]\nHelp me create a complete product ladder around this ONE idea. Give me: a free lead magnet, a $2\nlow-ticket offer, a $7-$17 product, a larger digital product, a premium version, a bundle, 3 nichespecific versions, and a possible recurring/membership offer.\n\nFor each idea explain what is included, who it is for, why they would buy it, and how it connects\nto the main tool. Do not create unrelated products.\n\nTIP: Save Prompt 4 as your consistency prompt. It is what helps your scenes look like one\nworld instead of unrelated images."];
+  var i = 0;
+  var scr = document.getElementById("screen"), cnt = document.getElementById("count"),
+      bar = document.getElementById("bar"), back = document.getElementById("backbtn"),
+      next = document.getElementById("nextbtn"), copyb = document.getElementById("copybtn");
+  function render(){
+    scr.textContent = SCREENS[i];
+    cnt.textContent = "Screen " + (i+1) + " of " + SCREENS.length;
+    bar.style.width = ((i+1)/SCREENS.length*100) + "%";
+    back.disabled = i === 0;
+    next.textContent = i === SCREENS.length-1 ? "✓ Done" : "Next →";
+    copyb.textContent = "Copy This Screen";
+    window.scrollTo(0,0);
+  }
+  back.onclick = function(){ if(i>0){ i--; render(); } };
+  next.onclick = function(){ if(i<SCREENS.length-1){ i++; render(); } };
+  copyb.onclick = function(){
+    function done(){ copyb.textContent = "Copied ✓"; }
+    if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(SCREENS[i]).then(done, function(){ fb(); }); }
+    else fb();
+    function fb(){ var ta=document.createElement("textarea"); ta.value=SCREENS[i]; document.body.appendChild(ta); ta.select(); try{ document.execCommand("copy"); done(); }catch(e){} document.body.removeChild(ta); }
+  };
+  render();
+</script>
+</body>
+</html>
