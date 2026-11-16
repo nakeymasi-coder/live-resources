@@ -69,10 +69,6 @@ p.secsub{text-align:center;font-weight:700;color:#2c587f;font-size:14px;margin-b
 body.muted *{animation-play-state:paused !important}
 .ticker{background:#fe2c55;color:#fff;border-radius:999px;padding:8px 0;overflow:hidden;white-space:nowrap;font-weight:800;font-size:13px;margin-top:10px}
 .ticker span{display:inline-block;padding-left:100%;animation:mq 22s linear infinite}
-.hambtn{display:block;width:100%;margin-top:12px;border:none;cursor:pointer;background:linear-gradient(90deg,#7b2ff7,#fe2c55,#ff9f1a,#7b2ff7);background-size:300% 100%;color:#fff;font-weight:900;font-size:20px;padding:16px;border-radius:999px;animation:shimmer 3s linear infinite;box-shadow:0 12px 28px rgba(254,44,85,.4)}
-body.ham{animation-duration:3s}
-body.ham h1{animation-duration:1.5s}
-body.ham .indigo-char{animation:dance .5s ease-in-out infinite}
 @keyframes dance{0%,100%{transform:rotate(-10deg) translateY(0) scale(1.05)}50%{transform:rotate(10deg) translateY(-16px) scale(1.12)}}
 .heart{position:fixed;z-index:98;pointer-events:none;animation:heartup 1.6s ease-out forwards;font-size:26px}
 @keyframes heartup{to{transform:translateY(-220px) rotate(24deg);opacity:0}}
@@ -117,7 +113,6 @@ textarea.names{width:100%;border:2px solid #a9d4f7;border-radius:14px;padding:12
       <li>📚 YOU ABOUT TO LEARN!</li>
     </ul>
     <button class="cta" id="comein">Come On In — Get My Resources 🦋</button>
-    <button class="hambtn" id="ham">🔥 GO HAM MODE 🔥</button>
     <p style="text-align:center;font-weight:700;font-size:13px;margin-top:8px;color:#2c587f">Psst — tap anywhere on the page for TikTok hearts 💙</p>
   </div>
 
@@ -280,19 +275,15 @@ document.getElementById('g3reveal').onclick=function(){g3shown=g3word.length;g3r
 g3render();
 </script>
 <script>
-/* GO HAM extras */
+/* extras */
 var _open=openGame;
 openGame=function(id){['game1','game2','game3','game4'].forEach(function(g){document.getElementById(g).hidden=(g!==id);});document.getElementById(id).scrollIntoView({behavior:'smooth'});};
 document.querySelectorAll('[data-open]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();openGame(a.getAttribute('data-open'));});});
 var _run=runCmd;
 runCmd=function(raw){var t=(raw||'').toLowerCase();
   if(t.indexOf('game 4')>-1||t.indexOf('game four')>-1||t.indexOf('wheel')>-1){openGame('game4');say('WHEEL IS UP! Paste them names, Glam — let\'s spin a WINNER! 🎡');}
-  else if(t.indexOf('ham')>-1){goHam();}
-  else if(t.indexOf('dance')>-1){goHam();say('INDIGO IS DANCING, Y\'ALL! 🦋💃🏽✨');}
   else if(t.indexOf('room')>-1){document.getElementById('room').scrollIntoView({behavior:'smooth'});say('Welcome to my STAGE in the Glam Live Room! ✨🦋');}
   else{_run(raw);}};
-function goHam(){document.body.classList.toggle('ham');confetti();setTimeout(confetti,350);say(document.body.classList.contains('ham')?'HAM MODE ONNN! We going CRAZY in here! 🔥🦋🎉':'Ham mode off — back to cute. 💙');}
-document.getElementById('ham').onclick=goHam;
 document.addEventListener('click',function(e){if(e.target.tagName==='INPUT'||e.target.tagName==='TEXTAREA'||e.target.tagName==='BUTTON'||e.target.tagName==='A')return;var h=document.createElement('span');h.className='heart';h.textContent=['💙','🩷','✨','🦋'][Math.floor(Math.random()*4)];h.style.left=(e.clientX-13)+'px';h.style.top=(e.clientY-13)+'px';document.body.appendChild(h);setTimeout(function(){h.remove();},1650);});
 /* Game 4 wheel */
 var g4names=[],g4rot=0,g4colors=['#fe2c55','#168fea','#ffe27a','#7b2ff7','#ff9f1a','#25f4ee','#ff5fa2','#0b3d91'];
