@@ -67,6 +67,28 @@ p.secsub{text-align:center;font-weight:700;color:#2c587f;font-size:14px;margin-b
 .gmsg{text-align:center;font-weight:900;font-size:18px;min-height:24px;margin-top:10px;color:#0b3d91}
 .dropword{font-size:30px;text-align:center;letter-spacing:6px;margin:12px 0;font-weight:900}
 body.muted *{animation-play-state:paused !important}
+.ticker{background:#fe2c55;color:#fff;border-radius:999px;padding:8px 0;overflow:hidden;white-space:nowrap;font-weight:800;font-size:13px;margin-top:10px}
+.ticker span{display:inline-block;padding-left:100%;animation:mq 22s linear infinite}
+.hambtn{display:block;width:100%;margin-top:12px;border:none;cursor:pointer;background:linear-gradient(90deg,#7b2ff7,#fe2c55,#ff9f1a,#7b2ff7);background-size:300% 100%;color:#fff;font-weight:900;font-size:20px;padding:16px;border-radius:999px;animation:shimmer 3s linear infinite;box-shadow:0 12px 28px rgba(254,44,85,.4)}
+body.ham{animation-duration:3s}
+body.ham h1{animation-duration:1.5s}
+body.ham .indigo-char{animation:dance .5s ease-in-out infinite}
+@keyframes dance{0%,100%{transform:rotate(-10deg) translateY(0) scale(1.05)}50%{transform:rotate(10deg) translateY(-16px) scale(1.12)}}
+.heart{position:fixed;z-index:98;pointer-events:none;animation:heartup 1.6s ease-out forwards;font-size:26px}
+@keyframes heartup{to{transform:translateY(-220px) rotate(24deg);opacity:0}}
+.room{perspective:900px;margin-top:26px}
+.room-inner{background:linear-gradient(180deg,#1b0f3a 0%,#3b1470 55%,#0b3d91 100%);border-radius:24px;padding:26px 16px 20px;text-align:center;color:#fff;overflow:hidden;position:relative;box-shadow:0 18px 40px rgba(27,15,58,.5);transform:rotateX(4deg)}
+.neon{font-size:clamp(28px,7vw,42px);font-weight:900;letter-spacing:.08em;color:#fff;text-shadow:0 0 8px #ff5fa2,0 0 22px #ff5fa2,0 0 44px #fe2c55;animation:blink 2.4s infinite}
+.beam{position:absolute;top:-30px;width:90px;height:260px;background:linear-gradient(180deg,rgba(255,255,150,.5),transparent);clip-path:polygon(42% 0,58% 0,100% 100%,0 100%);transform-origin:top center;animation:swing 4s ease-in-out infinite}
+.beam.b2{right:8%;animation-delay:1.3s;background:linear-gradient(180deg,rgba(140,220,255,.5),transparent)}
+.beam.b1{left:8%}
+@keyframes swing{0%,100%{transform:rotate(-16deg)}50%{transform:rotate(16deg)}}
+.stagefloor{height:16px;background:repeating-linear-gradient(90deg,#ff5fa2 0 26px,#168fea 26px 52px,#ffe27a 52px 78px);border-radius:99px;margin:14px auto 4px;max-width:420px;box-shadow:0 0 24px rgba(255,95,162,.7)}
+.wheelwrap{position:relative;width:270px;height:270px;margin:14px auto}
+.wheel{width:100%;height:100%;border-radius:50%;border:10px solid #0d2b4d;transition:transform 4.2s cubic-bezier(.12,.8,.16,1);box-shadow:0 14px 34px rgba(13,43,77,.3)}
+.pointer{position:absolute;top:-8px;left:50%;transform:translateX(-50%);font-size:30px;z-index:3}
+.hubcenter{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:#fff;border:4px solid #0d2b4d;border-radius:50%;width:74px;height:74px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:14px;z-index:2}
+textarea.names{width:100%;border:2px solid #a9d4f7;border-radius:14px;padding:12px;font-size:15px;font-weight:700;min-height:84px;font-family:inherit}
 .confetti{position:fixed;top:-10px;z-index:99;pointer-events:none;animation:fall linear forwards}
 @keyframes fall{to{transform:translateY(105vh) rotate(720deg)}}
 </style>
@@ -79,6 +101,7 @@ body.muted *{animation-play-state:paused !important}
 <div class="wrap">
   <div class="marquee"><span>🦋 WELCOME TO GLAM TIKTOK LIVE RESOURCES 🦋 COME ON IN 🦋 GET YOUR RESOURCES 🦋 YOU ABOUT TO LEARN 🦋</span></div>
 
+  <div class="ticker"><span>✨ WELCOME IN! ✨ GRAB YOUR WATER 💧 TELL THEM KIDS TO SIT DOWN 🧸 NEW RESOURCES JUST DROPPED 📚 GAME TIME IS COMING 🎮 SAY PROMPT FOR THE $7 STUDIO ✨</span></div>
   <div class="livewrap"><div class="livebadge"><span class="dot"></span> LIVE • TIKTOK</div></div>
   <h1>Welcome to Glam<br>TikTok Live Resources!</h1>
   <p class="sub">Come on in, get your resources 💙</p>
@@ -94,6 +117,8 @@ body.muted *{animation-play-state:paused !important}
       <li>📚 YOU ABOUT TO LEARN!</li>
     </ul>
     <button class="cta" id="comein">Come On In — Get My Resources 🦋</button>
+    <button class="hambtn" id="ham">🔥 GO HAM MODE 🔥</button>
+    <p style="text-align:center;font-weight:700;font-size:13px;margin-top:8px;color:#2c587f">Psst — tap anywhere on the page for TikTok hearts 💙</p>
   </div>
 
   <div id="resources">
@@ -122,6 +147,17 @@ body.muted *{animation-play-state:paused !important}
     <a class="bigbtn vault" href="https://www.skool.com/the-glam-vault-9512">🦋 Join The Glam Vault on Skool</a>
   </div>
 
+  <div class="room" id="room">
+    <div class="room-inner">
+      <div class="beam b1"></div><div class="beam b2"></div>
+      <div class="neon">✨ GLAM LIVE ✨</div>
+      <p style="font-weight:800;margin-top:6px">The 3D Live Room — Indigo's Stage</p>
+      <div class="indigo-char" style="font-size:96px;margin-top:8px">🦋</div>
+      <p style="font-weight:700;font-size:14px;opacity:.92">Sapphire-to-teal sparkle wings, puffer on, ready to perform.<br>Full Marble 3D rooms are next — this stage holds the spot tonight.</p>
+      <div class="stagefloor"></div>
+    </div>
+  </div>
+
   <div class="indigo-stage" id="indigo">
     <div class="indigo-char">🦋</div>
     <h3 style="font-size:24px;font-weight:900">Call Indigo 💙</h3>
@@ -140,6 +176,18 @@ body.muted *{animation-play-state:paused !important}
       <a class="card" href="#game1" data-open="game1">🎮 Game 1<small>Guess the One Change</small></a>
       <a class="card" href="#game2" data-open="game2">🔀 Game 2<small>Prompt Scramble</small></a>
       <a class="card" href="#game3" data-open="game3">🦋 Game 3<small>Butterfly Word Drop</small></a>
+      <a class="card" href="#game4" data-open="game4">🎡 Game 4<small>Winner Wheel — spin for a winner!</small></a>
+    </div>
+
+    <div class="gamepanel" id="game4" hidden>
+      <h4>🎡 Game 4 — Winner Wheel</h4>
+      <p style="text-align:center;font-weight:700">Host: paste the names (one per line), then SPIN!</p>
+      <textarea class="names" id="g4names" placeholder="One name per line…"></textarea>
+      <button class="gbtn" id="g4load">Put Them On The Wheel 🎡</button>
+      <div class="wheelwrap"><div class="pointer">⬇️</div><div class="wheel" id="g4wheel"></div><div class="hubcenter">SPIN</div></div>
+      <div style="text-align:center;font-weight:700" id="g4list"></div>
+      <div class="gmsg" id="g4msg"></div>
+      <button class="gbtn" id="g4spin" style="background:linear-gradient(90deg,#fe2c55,#ff5fa2)">SPIN THE WHEEL 🎡</button>
     </div>
 
     <div class="gamepanel" id="game1" hidden>
@@ -229,6 +277,28 @@ document.getElementById('g3setbtn').onclick=function(){var v=document.getElement
 document.getElementById('g3drop').onclick=function(){if(g3shown<g3word.length){g3shown++;g3render();confetti();}};
 document.getElementById('g3reveal').onclick=function(){g3shown=g3word.length;g3render();document.getElementById('g3msg').textContent='🎉 The word was '+g3word+'!';confetti();say('THE WORD WAS '+g3word+'! Who guessed it first?! 🦋🎉');};
 g3render();
+</script>
+<script>
+/* GO HAM extras */
+var _open=openGame;
+openGame=function(id){['game1','game2','game3','game4'].forEach(function(g){document.getElementById(g).hidden=(g!==id);});document.getElementById(id).scrollIntoView({behavior:'smooth'});};
+document.querySelectorAll('[data-open]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();openGame(a.getAttribute('data-open'));});});
+var _run=runCmd;
+runCmd=function(raw){var t=(raw||'').toLowerCase();
+  if(t.indexOf('game 4')>-1||t.indexOf('game four')>-1||t.indexOf('wheel')>-1){openGame('game4');say('WHEEL IS UP! Paste them names, Glam — let\'s spin a WINNER! 🎡');}
+  else if(t.indexOf('ham')>-1){goHam();}
+  else if(t.indexOf('dance')>-1){goHam();say('INDIGO IS DANCING, Y\'ALL! 🦋💃🏽✨');}
+  else if(t.indexOf('room')>-1){document.getElementById('room').scrollIntoView({behavior:'smooth'});say('Welcome to my STAGE in the Glam Live Room! ✨🦋');}
+  else{_run(raw);}};
+function goHam(){document.body.classList.toggle('ham');confetti();setTimeout(confetti,350);say(document.body.classList.contains('ham')?'HAM MODE ONNN! We going CRAZY in here! 🔥🦋🎉':'Ham mode off — back to cute. 💙');}
+document.getElementById('ham').onclick=goHam;
+document.addEventListener('click',function(e){if(e.target.tagName==='INPUT'||e.target.tagName==='TEXTAREA'||e.target.tagName==='BUTTON'||e.target.tagName==='A')return;var h=document.createElement('span');h.className='heart';h.textContent=['💙','🩷','✨','🦋'][Math.floor(Math.random()*4)];h.style.left=(e.clientX-13)+'px';h.style.top=(e.clientY-13)+'px';document.body.appendChild(h);setTimeout(function(){h.remove();},1650);});
+/* Game 4 wheel */
+var g4names=[],g4rot=0,g4colors=['#fe2c55','#168fea','#ffe27a','#7b2ff7','#ff9f1a','#25f4ee','#ff5fa2','#0b3d91'];
+function g4draw(){var w=document.getElementById('g4wheel');if(!g4names.length){w.style.background='conic-gradient(#eaf6ff 0 100%)';document.getElementById('g4list').textContent='';return;}var step=360/g4names.length,parts=[];g4names.forEach(function(n,i){parts.push(g4colors[i%g4colors.length]+' '+(i*step)+'deg '+((i+1)*step)+'deg');});w.style.background='conic-gradient('+parts.join(',')+')';document.getElementById('g4list').textContent=g4names.map(function(n,i){return (i+1)+'. '+n;}).join('  •  ');}
+document.getElementById('g4load').onclick=function(){g4names=document.getElementById('g4names').value.split('\n').map(function(s){return s.trim();}).filter(Boolean);g4rot=0;document.getElementById('g4wheel').style.transform='rotate(0deg)';g4draw();document.getElementById('g4msg').textContent=g4names.length?g4names.length+' names on the wheel — SPIN IT! 🎡':'Add at least one name first!';};
+document.getElementById('g4spin').onclick=function(){if(g4names.length<2){document.getElementById('g4msg').textContent='Put at least 2 names on the wheel first!';return;}var step=360/g4names.length;var winIdx=Math.floor(Math.random()*g4names.length);var target=360*6+(360-(winIdx*step+step/2));g4rot+=target-(g4rot%360);document.getElementById('g4wheel').style.transform='rotate('+g4rot+'deg)';document.getElementById('g4msg').textContent='Spinning… 🎡';setTimeout(function(){document.getElementById('g4msg').textContent='🎉 WINNER: '+g4names[winIdx]+'! 🎉';confetti();say('WE HAVE A WINNER — '+g4names[winIdx]+'!! 🎡🎉🦋');},4350);};
+g4draw();
 </script>
 </body>
 </html>
