@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Glam TikTok Live Resources 🦋</title>
+<meta name="description" content="Welcome to Glam TikTok Live Resources — come on in, get your resources, you about to learn!">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#0b3d91">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:#0d2b4d;min-height:100vh;overflow-x:hidden;background:linear-gradient(160deg,#dff2ff 0%,#eef9ff 45%,#ffeef7 100%);background-size:200% 200%;animation:bgmove 12s ease infinite}
+@keyframes bgmove{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+.wrap{max-width:760px;margin:0 auto;padding:16px 14px 36px;position:relative;z-index:2}
+.floaty{position:fixed;font-size:28px;opacity:.55;z-index:1;animation:floaty 7s ease-in-out infinite;pointer-events:none}
+@keyframes floaty{0%,100%{transform:translateY(0) rotate(-8deg)}50%{transform:translateY(-26px) rotate(10deg)}}
+.marquee{background:#0d2b4d;color:#fff;overflow:hidden;white-space:nowrap;border-radius:999px;padding:9px 0;font-weight:800;font-size:13px;letter-spacing:.06em;box-shadow:0 6px 18px rgba(13,43,77,.25)}
+.marquee span{display:inline-block;padding-left:100%;animation:mq 18s linear infinite}
+@keyframes mq{to{transform:translateX(-100%)}}
+.livebadge{display:inline-flex;align-items:center;gap:8px;background:#fe2c55;color:#fff;font-weight:900;letter-spacing:.14em;padding:8px 18px;border-radius:999px;font-size:15px;box-shadow:0 0 0 0 rgba(254,44,85,.6);animation:pulse 1.6s infinite;margin:18px auto 10px}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(254,44,85,.55)}70%{box-shadow:0 0 0 16px rgba(254,44,85,0)}100%{box-shadow:0 0 0 0 rgba(254,44,85,0)}}
+.livewrap{text-align:center}
+.dot{width:10px;height:10px;background:#fff;border-radius:50%;animation:blink 1s infinite}
+@keyframes blink{50%{opacity:.25}}
+h1{font-size:clamp(30px,7.5vw,46px);font-weight:900;text-align:center;line-height:1.08;background:linear-gradient(90deg,#0b3d91,#168fea,#ff5fa2,#0b3d91);background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shimmer 6s linear infinite}
+@keyframes shimmer{to{background-position:300% 0}}
+.sub{text-align:center;font-size:clamp(17px,4.5vw,21px);font-weight:800;margin-top:8px;color:#103b63}
+.welcome{background:#fff;border:2px solid #cfe8fb;border-radius:24px;padding:20px 18px;margin-top:16px;box-shadow:0 14px 34px rgba(22,143,234,.16)}
+.welcome h2{text-align:center;font-size:22px;margin-bottom:12px}
+.check{list-style:none}
+.check li{font-size:clamp(16px,4.4vw,19px);font-weight:700;padding:10px 12px;margin:8px 0;background:linear-gradient(90deg,#eaf6ff,#fff0f7);border-radius:14px;opacity:0;transform:translateX(-18px);animation:slidein .6s forwards}
+.check li:nth-child(1){animation-delay:.2s}.check li:nth-child(2){animation-delay:.55s}.check li:nth-child(3){animation-delay:.9s}.check li:nth-child(4){animation-delay:1.25s}.check li:nth-child(5){animation-delay:1.6s}.check li:nth-child(6){animation-delay:1.95s;background:linear-gradient(90deg,#ffe27a,#ffb3d1);font-size:clamp(18px,5vw,22px);text-align:center}
+@keyframes slidein{to{opacity:1;transform:none}}
+.cta{display:block;width:100%;margin-top:16px;border:none;cursor:pointer;background:linear-gradient(90deg,#fe2c55,#ff5fa2,#168fea);color:#fff;font-weight:900;font-size:19px;padding:16px;border-radius:999px;box-shadow:0 10px 24px rgba(254,44,85,.35);animation:bounce 2.2s infinite}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+h3.sec{margin:26px 0 6px;font-size:22px;font-weight:900;text-align:center}
+p.secsub{text-align:center;font-weight:700;color:#2c587f;font-size:14px;margin-bottom:12px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:480px){.grid{grid-template-columns:1fr}}
+.card{display:block;text-decoration:none;color:#0d2b4d;background:#fff;border:2px solid #cfe8fb;border-radius:18px;padding:15px 14px;font-weight:800;font-size:16px;box-shadow:0 8px 20px rgba(22,143,234,.12);transition:transform .15s,box-shadow .15s;opacity:0;animation:pop .5s forwards}
+.card small{display:block;font-weight:600;color:#2c587f;font-size:13px;margin-top:3px}
+.card:active{transform:scale(.97)}
+.card:hover{transform:translateY(-3px);box-shadow:0 14px 26px rgba(22,143,234,.22)}
+@keyframes pop{from{opacity:0;transform:scale(.92)}to{opacity:1;transform:scale(1)}}
+.bigbtn{display:block;text-decoration:none;text-align:center;color:#fff;font-weight:900;font-size:17px;padding:15px;border-radius:999px;margin:10px 0;box-shadow:0 8px 20px rgba(13,43,77,.25)}
+.shop{background:linear-gradient(90deg,#168fea,#0b3d91)}
+.vault{background:linear-gradient(90deg,#7b2ff7,#ff5fa2)}
+.promo{background:linear-gradient(90deg,#ff9f1a,#fe2c55)}
+.footer{margin-top:28px;text-align:center}
+.footer .twin{display:flex;gap:10px}
+.footer .twin a{flex:1}
+.credit{margin-top:14px;font-size:13px;font-weight:700;color:#2c587f}
+.confetti{position:fixed;top:-10px;z-index:99;pointer-events:none;animation:fall linear forwards}
+@keyframes fall{to{transform:translateY(105vh) rotate(720deg)}}
+</style>
+</head>
+<body>
+<div class="floaty" style="left:6%;top:12%">🦋</div>
+<div class="floaty" style="right:8%;top:22%;animation-delay:1.2s">✨</div>
+<div class="floaty" style="left:10%;top:58%;animation-delay:2s">🦋</div>
+<div class="floaty" style="right:6%;top:68%;animation-delay:.6s">💎</div>
+<div class="wrap">
+  <div class="marquee"><span>🦋 WELCOME TO GLAM TIKTOK LIVE RESOURCES 🦋 COME ON IN 🦋 GET YOUR RESOURCES 🦋 YOU ABOUT TO LEARN 🦋</span></div>
+
+  <div class="livewrap"><div class="livebadge"><span class="dot"></span> LIVE • TIKTOK</div></div>
+  <h1>Welcome to Glam<br>TikTok Live Resources!</h1>
+  <p class="sub">Come on in, get your resources 💙</p>
+
+  <div class="welcome">
+    <h2>First — get settled, sis 👇🏽</h2>
+    <ul class="check">
+      <li>💧 Go grab your water</li>
+      <li>👑 Take your wig off — get comfortable</li>
+      <li>🥤 Go grab a drink</li>
+      <li>🧸 Tell them kids to sit down</li>
+      <li>🙅🏽‍♀️ Tell that husband to leave you alone</li>
+      <li>📚 YOU ABOUT TO LEARN!</li>
+    </ul>
+    <button class="cta" id="comein">Come On In — Get My Resources 🦋</button>
+  </div>
+
+  <div id="resources">
+    <h3 class="sec">📚 Tonight's Live Resources</h3>
+    <p class="secsub">Tap one — it opens right up, no hunting, no searching</p>
+    <div class="grid">
+      <a class="card" href="interactive-forms/">📝 Interactive Forms<small>Student Guide</small></a>
+      <a class="card" href="day-to-night/">🌙 Day-to-Night Scene Builder<small>Workshop curriculum &amp; prompt</small></a>
+      <a class="card" href="make-money-monday/">💰 Make Money Monday<small>Full curriculum</small></a>
+      <a class="card" href="fix-it-friday/">🔧 Fix-It Friday<small>Generator curriculum &amp; code</small></a>
+      <a class="card" href="freebie-friday/">🎁 Freebie Friday<small>Product curriculum</small></a>
+      <a class="card" href="brand-world-curriculum/">🌎 Brand World Generator<small>Student curriculum workbook</small></a>
+      <a class="card" href="brand-world-prompt-pack/">✨ Brand World Prompt Pack<small>Ready-to-use prompts</small></a>
+      <a class="card" href="brand-world-deep-strategy/">🧠 Brand World Deep Strategy<small>The deep strategy guide</small></a>
+      <a class="card" href="brand-world-monetization/">💵 Brand World Monetization<small>The monetization playbook</small></a>
+      <a class="card" href="brand-world-spicy-ideas/">🌶️ Brand World Spicy Ideas<small>Spicy ideas library</small></a>
+      <a class="card" href="brand-world-examples-1/">📖 Brand World Examples — Part 1<small>Worked examples library</small></a>
+      <a class="card" href="brand-world-examples-2/">📖 Brand World Examples — Part 2<small>More worked examples</small></a>
+    </div>
+
+    <h3 class="sec">🛍️ Shop &amp; Join</h3>
+    <p class="secsub">Everything from the live, in one place</p>
+    <a class="bigbtn shop" href="https://glamhustlehub.com/products/all-purpose-prompt-studio">✨ All-Purpose Prompt Studio — $7 (say PROMPT in the live)</a>
+    <a class="bigbtn promo" href="https://nakeymasi-coder.github.io/promo-director/">🎬 The Promo Director — Gift Page</a>
+    <a class="bigbtn shop" href="https://glamhustlehub.com">🛍️ Shop Glam Hustle Hub</a>
+    <a class="bigbtn vault" href="https://www.skool.com/the-glam-vault-9512">🦋 Join The Glam Vault on Skool</a>
+  </div>
+
+  <div class="footer">
+    <div class="twin">
+      <a class="bigbtn shop" href="https://glamhustlehub.com">Shop</a>
+      <a class="bigbtn vault" href="https://www.skool.com/the-glam-vault-9512">Join The Glam Vault</a>
+    </div>
+    <p class="credit">Made with 💙 by Glam Hustle Hub 🦋</p>
+  </div>
+</div>
+<script>
+function confetti(){
+  var em=['🦋','✨','💙','💎','🎉'];
+  for(var i=0;i<28;i++){
+    var s=document.createElement('span');s.className='confetti';s.textContent=em[i%em.length];
+    s.style.left=(Math.random()*100)+'vw';s.style.fontSize=(16+Math.random()*18)+'px';
+    s.style.animationDuration=(2.2+Math.random()*1.8)+'s';document.body.appendChild(s);
+    setTimeout((function(el){return function(){el.remove()}})(s),4200);
+  }
+}
+window.addEventListener('load',confetti);
+document.getElementById('comein').onclick=function(){confetti();document.getElementById('resources').scrollIntoView({behavior:'smooth'});};
+var cards=document.querySelectorAll('.card');cards.forEach(function(c,i){c.style.animationDelay=(i*0.07)+'s';});
+</script>
+</body>
+</html>
