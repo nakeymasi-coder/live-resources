@@ -51,6 +51,22 @@ p.secsub{text-align:center;font-weight:700;color:#2c587f;font-size:14px;margin-b
 .footer .twin{display:flex;gap:10px}
 .footer .twin a{flex:1}
 .credit{margin-top:14px;font-size:13px;font-weight:700;color:#2c587f}
+.indigo-stage{background:linear-gradient(160deg,#0b3d91,#168fea 60%,#7b2ff7);border-radius:24px;padding:20px 16px;text-align:center;color:#fff;margin-top:26px;box-shadow:0 14px 34px rgba(11,61,145,.35)}
+.indigo-char{font-size:84px;display:inline-block;animation:floaty 3s ease-in-out infinite;filter:drop-shadow(0 8px 16px rgba(0,0,0,.3))}
+.bubble{background:#fff;color:#0d2b4d;font-weight:800;font-size:17px;border-radius:18px;padding:12px 14px;margin:12px auto;max-width:420px}
+.cmdbar{display:flex;gap:8px;margin-top:12px}
+.cmdbar input{flex:1;border:none;border-radius:999px;padding:13px 16px;font-size:16px;font-weight:700;min-width:0}
+.cmdbar button{border:none;border-radius:999px;padding:13px 18px;font-weight:900;background:#fe2c55;color:#fff;cursor:pointer;font-size:15px}
+.gamepanel{background:#fff;border:2px solid #cfe8fb;border-radius:20px;padding:18px 14px;margin-top:12px;box-shadow:0 10px 26px rgba(22,143,234,.13)}
+.gamepanel h4{font-size:19px;margin-bottom:8px;text-align:center}
+.gamerow{font-size:34px;text-align:center;letter-spacing:4px;margin:10px 0}
+.gamerow button{font-size:34px;background:none;border:none;cursor:pointer;padding:2px}
+.chip{display:inline-block;background:#eaf6ff;border:2px solid #a9d4f7;border-radius:999px;padding:9px 14px;margin:4px;font-weight:800;cursor:pointer;font-size:15px}
+.chip.used{opacity:.3;pointer-events:none}
+.gbtn{width:100%;border:none;cursor:pointer;font-weight:900;font-size:16px;padding:13px;border-radius:999px;background:linear-gradient(90deg,#168fea,#0b3d91);color:#fff;margin-top:10px}
+.gmsg{text-align:center;font-weight:900;font-size:18px;min-height:24px;margin-top:10px;color:#0b3d91}
+.dropword{font-size:30px;text-align:center;letter-spacing:6px;margin:12px 0;font-weight:900}
+body.muted *{animation-play-state:paused !important}
 .confetti{position:fixed;top:-10px;z-index:99;pointer-events:none;animation:fall linear forwards}
 @keyframes fall{to{transform:translateY(105vh) rotate(720deg)}}
 </style>
@@ -106,6 +122,55 @@ p.secsub{text-align:center;font-weight:700;color:#2c587f;font-size:14px;margin-b
     <a class="bigbtn vault" href="https://www.skool.com/the-glam-vault-9512">🦋 Join The Glam Vault on Skool</a>
   </div>
 
+  <div class="indigo-stage" id="indigo">
+    <div class="indigo-char">🦋</div>
+    <h3 style="font-size:24px;font-weight:900">Call Indigo 💙</h3>
+    <div class="bubble" id="bubble">Hey y'all! I'm Indigo — cute, ready, and on standby. We about to go CRAZY! 🦋✨</div>
+    <p style="font-weight:700;font-size:14px;opacity:.9">Glam — type to me right here, no need to leave the live.<br>Try: “we live” • “game 1” • “game 2” • “game 3” • “mute”</p>
+    <div class="cmdbar">
+      <input id="cmd" type="text" placeholder="Hey Indigo, we live — play game 1…" autocomplete="off">
+      <button id="sendcmd">Send</button>
+    </div>
+  </div>
+
+  <div id="games">
+    <h3 class="sec">🎮 Game Time — Play Right Here!</h3>
+    <p class="secsub">All the live games live on THIS page now</p>
+    <div class="grid">
+      <a class="card" href="#game1" data-open="game1">🎮 Game 1<small>Guess the One Change</small></a>
+      <a class="card" href="#game2" data-open="game2">🔀 Game 2<small>Prompt Scramble</small></a>
+      <a class="card" href="#game3" data-open="game3">🦋 Game 3<small>Butterfly Word Drop</small></a>
+    </div>
+
+    <div class="gamepanel" id="game1" hidden>
+      <h4>🎮 Game 1 — Guess the One Change</h4>
+      <p style="text-align:center;font-weight:700">One thing changed in the bottom row. Tap it!</p>
+      <div class="gamerow" id="g1top"></div>
+      <div class="gamerow" id="g1bot"></div>
+      <div class="gmsg" id="g1msg"></div>
+      <button class="gbtn" id="g1new">New Round 🔄</button>
+    </div>
+
+    <div class="gamepanel" id="game2" hidden>
+      <h4>🔀 Game 2 — Prompt Scramble</h4>
+      <p style="text-align:center;font-weight:700">Tap the words in the right order to build the prompt!</p>
+      <div class="gamerow" style="font-size:16px;letter-spacing:0" id="g2built"></div>
+      <div style="text-align:center" id="g2chips"></div>
+      <div class="gmsg" id="g2msg"></div>
+      <button class="gbtn" id="g2new">New Scramble 🔄</button>
+    </div>
+
+    <div class="gamepanel" id="game3" hidden>
+      <h4>🦋 Game 3 — Butterfly Word Drop</h4>
+      <p style="text-align:center;font-weight:700">Host: set the secret word, then drop the letters one by one!</p>
+      <div class="cmdbar"><input id="g3set" type="text" placeholder="Secret word (host only)"><button id="g3setbtn" style="background:#0b3d91">Set Word</button></div>
+      <div class="dropword" id="g3word"></div>
+      <div class="gmsg" id="g3msg"></div>
+      <button class="gbtn" id="g3drop">Drop a Letter 🦋</button>
+      <button class="gbtn" id="g3reveal" style="background:linear-gradient(90deg,#fe2c55,#ff5fa2)">Reveal the Word 🎉</button>
+    </div>
+  </div>
+
   <div class="footer">
     <div class="twin">
       <a class="bigbtn shop" href="https://glamhustlehub.com">Shop</a>
@@ -127,6 +192,43 @@ function confetti(){
 window.addEventListener('load',confetti);
 document.getElementById('comein').onclick=function(){confetti();document.getElementById('resources').scrollIntoView({behavior:'smooth'});};
 var cards=document.querySelectorAll('.card');cards.forEach(function(c,i){c.style.animationDelay=(i*0.07)+'s';});
+</script>
+<script>
+var bubble=document.getElementById('bubble');
+function say(t){bubble.textContent=t;}
+function openGame(id){['game1','game2','game3'].forEach(function(g){document.getElementById(g).hidden=(g!==id);});document.getElementById(id).scrollIntoView({behavior:'smooth'});}
+document.querySelectorAll('[data-open]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();openGame(a.getAttribute('data-open'));});});
+function runCmd(raw){
+  var t=(raw||'').toLowerCase();
+  if(t.indexOf('mute')>-1){document.body.classList.add('muted');say('Muted, Glam — animations paused. Type "unmute" when you ready. 🤫');}
+  else if(t.indexOf('unmute')>-1){document.body.classList.remove('muted');say('I am BACK, baby! Let\'s gooo! 🦋✨');confetti();}
+  else if(t.indexOf('game 1')>-1||t.indexOf('game one')>-1||t.indexOf('one change')>-1){openGame('game1');say('Game 1 is UP — Guess the One Change! Who got eyes? 👀🎮');}
+  else if(t.indexOf('game 2')>-1||t.indexOf('game two')>-1||t.indexOf('scramble')>-1){openGame('game2');say('Game 2 is UP — Prompt Scramble! Unscramble it, y\'all! 🔀');}
+  else if(t.indexOf('game 3')>-1||t.indexOf('game three')>-1||t.indexOf('word drop')>-1){openGame('game3');say('Game 3 is UP — Butterfly Word Drop! Guess that word! 🦋');}
+  else if(t.indexOf('live')>-1){confetti();say('WE LIVE, Y\'ALL! Welcome to Glam TikTok Live Resources — come on in, get your resources, YOU ABOUT TO LEARN! 🎉🦋');}
+  else if(t){say('Got it, Glam! Say "game 1", "game 2" or "game 3" and I\'ll set it right up. 💙');}
+}
+document.getElementById('sendcmd').onclick=function(){var i=document.getElementById('cmd');runCmd(i.value);i.value='';};
+document.getElementById('cmd').addEventListener('keydown',function(e){if(e.key==='Enter'){runCmd(e.target.value);e.target.value='';}});
+/* Game 1 */
+var g1rounds=[{top:['👑','💄','🦋','👠','💎'],bot:['👑','💄','🦋','👠','🎀'],ans:4},{top:['🌸','🍓','⭐','🌙','🍇'],bot:['🌸','🍓','☀️','🌙','🍇'],ans:2},{top:['🐶','🎈','🍕','🚗','🎁'],bot:['🐶','🎈','🍔','🚗','🎁'],ans:2}];
+var g1i=0;
+function g1render(){var r=g1rounds[g1i];document.getElementById('g1top').textContent=r.top.join(' ');var b=document.getElementById('g1bot');b.innerHTML='';r.bot.forEach(function(e,idx){var btn=document.createElement('button');btn.textContent=e;btn.onclick=function(){var m=document.getElementById('g1msg');if(idx===r.ans){m.textContent='🎉 THAT\'S IT! You caught the change!';confetti();say('SOMEBODY GOT IT! Game 1 winner energy! 🎉');}else{m.textContent='Nope — keep looking! 👀';}};b.appendChild(btn);});document.getElementById('g1msg').textContent='';}
+document.getElementById('g1new').onclick=function(){g1i=(g1i+1)%g1rounds.length;g1render();};
+g1render();
+/* Game 2 */
+var g2prompts=[['A','PLUS','SIZE','QUEEN','IN','A','SAPPHIRE','GOWN','HOLDING','A','BUTTERFLY'],['GLOWING','BUTTERFLY','OVER','A','PINK','STUDIO','AT','SUNSET']];
+var g2i=0,g2built=[];
+function g2render(){g2built=[];document.getElementById('g2built').textContent='✍🏽 Tap the words…';document.getElementById('g2msg').textContent='';var ans=g2prompts[g2i];var shuffled=ans.map(function(w,idx){return{w:w,idx:idx};}).sort(function(){return Math.random()-.5;});var box=document.getElementById('g2chips');box.innerHTML='';shuffled.forEach(function(o){var c=document.createElement('span');c.className='chip';c.textContent=o.w;c.onclick=function(){c.classList.add('used');g2built.push(o);document.getElementById('g2built').textContent=g2built.map(function(x){return x.w;}).join(' ');if(g2built.length===ans.length){var ok=g2built.every(function(x,idx){return x.idx===idx;});document.getElementById('g2msg').textContent=ok?'🎉 PROMPT BUILT! That\'s exactly right!':'Almost — hit New Scramble and try again! 💙';if(ok){confetti();say('PROMPT SCRAMBLE SOLVED! Y\'all did that! 🔀🎉');}}};box.appendChild(c);});}
+document.getElementById('g2new').onclick=function(){g2i=(g2i+1)%g2prompts.length;g2render();};
+g2render();
+/* Game 3 */
+var g3word='SAPPHIRE',g3shown=0;
+function g3render(){var out='';for(var i=0;i<g3word.length;i++){out+=(i<g3shown?g3word[i]:'🦋')+' ';}document.getElementById('g3word').textContent=out;}
+document.getElementById('g3setbtn').onclick=function(){var v=document.getElementById('g3set').value.trim().toUpperCase().replace(/[^A-Z]/g,'');if(v){g3word=v;g3shown=0;g3render();document.getElementById('g3msg').textContent='Secret word set — audience sees butterflies only! 🤫';document.getElementById('g3set').value='';}};
+document.getElementById('g3drop').onclick=function(){if(g3shown<g3word.length){g3shown++;g3render();confetti();}};
+document.getElementById('g3reveal').onclick=function(){g3shown=g3word.length;g3render();document.getElementById('g3msg').textContent='🎉 The word was '+g3word+'!';confetti();say('THE WORD WAS '+g3word+'! Who guessed it first?! 🦋🎉');};
+g3render();
 </script>
 </body>
 </html>
