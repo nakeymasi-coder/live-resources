@@ -58,6 +58,8 @@ body.pop .hs{visibility:hidden}
 .btn.alt{background:var(--chrome);color:var(--deep);border:1.5px solid #fff;box-shadow:0 8px 20px rgba(16,59,99,.2)}
 .btn.teal{background:linear-gradient(95deg,#103B63,#171A1E);color:#fff}
 #p-welcome{width:min(480px,100%)}
+.slides{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;border-radius:20px;-webkit-overflow-scrolling:touch}
+.slides::-webkit-scrollbar{display:none}
 .slides img{flex:0 0 100%;width:100%;aspect-ratio:1;object-fit:cover;border-radius:20px;scroll-snap-align:center;box-shadow:0 14px 34px rgba(16,59,99,.35);user-select:none;-webkit-user-drag:none}
 .dots{display:flex;justify-content:center;gap:7px;margin:12px 0 2px}
 .dots b{width:8px;height:8px;border-radius:50%;background:rgba(16,59,99,.2);transition:all .3s;cursor:pointer}
