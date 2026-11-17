@@ -99,13 +99,19 @@ textarea{width:100%;min-height:80px;padding:12px;border-radius:12px;border:1.5px
 .spark{position:fixed;z-index:60;pointer-events:none;font-size:22px;animation:fall linear forwards}
 @keyframes fall{to{transform:translateY(105vh) rotate(540deg)}}
 #err{display:none;position:fixed;inset:0;z-index:55;align-items:center;justify-content:center;text-align:center;padding:30px;background:#103B63;color:#fff}
+#top .radio{pointer-events:auto;display:flex;align-items:center;gap:8px;cursor:pointer;font:inherit;font-weight:800;font-size:12px;letter-spacing:.14em;color:var(--deep);background:var(--chrome);border:1.5px solid #fff;padding:7px 14px;border-radius:999px;box-shadow:0 0 18px rgba(22,143,234,.6)}
+#top .radio .eq{display:flex;gap:2px;align-items:flex-end;height:12px}#top .radio .eq i{width:3px;background:#168FEA;border-radius:2px;animation:eq .9s ease-in-out infinite}
+#top .radio .eq i:nth-child(2){animation-delay:.2s}#top .radio .eq i:nth-child(3){animation-delay:.4s}
+@keyframes eq{0%,100%{height:3px}50%{height:12px}}
+#top .lft{display:flex;gap:8px;align-items:center}
+.radioframe{width:100%;height:min(62vh,620px);border:0;border-radius:18px;background:#103B63;box-shadow:0 8px 24px rgba(16,59,99,.35);margin-bottom:14px}
 </style>
 </head>
 <body>
 <div id="load"><div class="neonword">GLAM LIVE</div><div class="bar"><i id="pbar"></i></div><div class="loadtxt" id="ltxt">Opening the studio</div></div>
-<div id="err"><div><div class="neonword" style="font-size:44px">GLAM LIVE</div><p style="margin-top:14px">This phone can't show the 3D room. Tap below for everything in it.</p><button class="btn" data-open="resources">Open the Live Resources</button><button class="btn teal" data-open="games">Game Time</button><button class="btn alt" data-open="shop">Shop &amp; Join</button></div></div>
+<div id="err"><div><div class="neonword" style="font-size:44px">GLAM LIVE</div><p style="margin-top:14px">This phone can't show the 3D room. Tap below for everything in it.</p><button class="btn" data-open="resources">Open the Live Resources</button><button class="btn teal" data-open="games">Game Time</button><button class="btn alt" data-open="shop">Shop &amp; Join</button><button class="btn" data-open="radio">Glam Radio</button></div></div>
 
-<div id="top"><div class="live"><b></b>LIVE</div><div class="brand">GLAM HUSTLE HUB</div></div>
+<div id="top"><div class="lft"><div class="live"><b></b>LIVE</div><button class="radio" data-open="radio"><span class="eq"><i></i><i></i><i></i></span>GLAM RADIO</button></div><div class="brand">GLAM HUSTLE HUB</div></div>
 <div id="hint">Drag to look around · Tap a light to step in</div>
 
 <button class="hs up" data-open="welcome" ><span class="orb"></span><span class="tag">Welcome In</span></button>
@@ -114,6 +120,14 @@ textarea{width:100%;min-height:80px;padding:12px;border-radius:12px;border:1.5px
 <button class="hs" data-open="shop" ><span class="orb"></span><span class="tag">Shop &amp; Join</span></button>
 
 <div id="veil"></div>
+
+<section class="panel" id="p-radio">
+  <div class="grab"></div><button class="x" aria-label="Close">×</button>
+  <h2>Tune in to <em>Glam Radio</em></h2>
+  <p class="lede">Press play, then close this and keep exploring. The music keeps going.</p>
+  <iframe class="radioframe" id="radioframe" title="Glam Radio" allow="autoplay; microphone" loading="lazy"></iframe>
+  <a class="btn" href="https://nakeymasi-coder.github.io/glam-radio/" target="_blank" rel="noopener">Open the full station</a>
+</section>
 
 <section class="panel" id="p-welcome">
   <div class="grab"></div><button class="x" aria-label="Close">×</button>
@@ -188,7 +202,7 @@ textarea{width:100%;min-height:80px;padding:12px;border-radius:12px;border:1.5px
 (function(){
 var veil=document.getElementById('veil'),hint=document.getElementById('hint');
 function closeAll(){document.body.classList.remove('pop');document.querySelectorAll('.panel.open').forEach(function(p){p.classList.remove('open')});veil.classList.remove('on');}
-window.openPanel=function(id){closeAll();var p=document.getElementById('p-'+id);if(!p)return;p.classList.add('open');veil.classList.add('on');document.body.classList.add('pop');p.scrollTop=0;hint.classList.add('hide');if(id==='welcome'){burst();if(window.__resetSlides)__resetSlides();}};
+window.openPanel=function(id){closeAll();var p=document.getElementById('p-'+id);if(!p)return;p.classList.add('open');veil.classList.add('on');document.body.classList.add('pop');p.scrollTop=0;hint.classList.add('hide');if(id==='radio'){var f=document.getElementById('radioframe');if(!f.src)f.src='https://nakeymasi-coder.github.io/glam-radio/';}if(id==='welcome'){burst();if(window.__resetSlides)__resetSlides();}};
 document.addEventListener('click',function(e){var t=e.target.closest('[data-open]');if(t){e.preventDefault();openPanel(t.getAttribute('data-open'));}});
 veil.onclick=closeAll;document.querySelectorAll('.x').forEach(function(b){b.onclick=closeAll});
 document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAll()});
