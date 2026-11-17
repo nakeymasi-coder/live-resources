@@ -106,6 +106,11 @@ textarea{width:100%;min-height:80px;padding:12px;border-radius:12px;border:1.5px
 @keyframes eq{0%,100%{height:3px}50%{height:12px}}
 #top .lft{display:flex;gap:8px;align-items:center}
 .radioframe{width:100%;height:min(62vh,620px);border:0;border-radius:18px;background:#103B63;box-shadow:0 8px 24px rgba(16,59,99,.35);margin-bottom:14px}
+#qrbox{position:fixed;right:18px;bottom:18px;z-index:44;width:clamp(130px,13vw,190px);padding:10px 10px 8px;border-radius:18px;background:#fff;border:3px solid #89C4F1;box-shadow:0 0 24px rgba(22,143,234,.75),0 10px 30px rgba(7,51,85,.5);text-align:center;transition:opacity .4s}
+#qrbox img{display:block;width:100%;height:auto;border-radius:8px}
+#qrbox span{display:block;margin-top:6px;font:800 11px Outfit,sans-serif;letter-spacing:.1em;color:#073355}
+body.pop #qrbox{opacity:0;pointer-events:none}
+@media (pointer:coarse),(max-width:700px){#qrbox{display:none}}
 </style>
 </head>
 <body>
@@ -113,6 +118,7 @@ textarea{width:100%;min-height:80px;padding:12px;border-radius:12px;border:1.5px
 <div id="err"><div><div class="neonword" style="font-size:44px">GLAM LIVE</div><p style="margin-top:14px">This phone can't show the 3D room. Tap below for everything in it.</p><button class="btn" data-open="resources">Open the Live Resources</button><button class="btn teal" data-open="games">Game Time</button><button class="btn alt" data-open="shop">Shop &amp; Join</button><button class="btn" data-open="radio">Glam Radio</button></div></div>
 
 <div id="top"><div class="lft"><div class="live"><b></b>LIVE</div><button class="radio" data-open="radio"><span class="eq"><i></i><i></i><i></i></span>GLAM RADIO</button></div><div class="brand">GLAM HUSTLE HUB</div></div>
+<div id="qrbox"><img src="img/qr.png" alt="Scan to step inside GLAM LIVE"><span>SCAN TO STEP INSIDE</span></div>
 <div id="hint">Drag to look around · Tap a light to step in</div>
 
 <button class="hs up" data-open="welcome" ><span class="orb"></span><span class="tag">Welcome In</span></button>
